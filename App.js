@@ -7,19 +7,16 @@ export default function App() {
   const [text, setText] = useState();
   const [text2, setText2] = useState();
   const [tulos, setTulos] = useState();
-  const [rivi, setRivi] = useState("")
   const [data, setData] = useState([]);
 
   const buttonPressed = () => {
     setTulos(text*1 + 1*text2);
-    setRivi(text + " + " + text2 + " = " + (text*1 + 1*text2))
-    setData([...data, {key: rivi}]);
+    setData([...data, {key: (text + " + " + text2 + " = " + (text*1 + 1*text2))}]);
   }
 
   const buttonPressed2 = () => {
     setTulos(text - text2);
-    setRivi(text + " - " + text2 + " = " + (text - text2))
-    setData([...data, {key: rivi}]);
+    setData([...data, {key: (text + " - " + text2 + " = " + (text - text2))}]);
   }
 
   return (
