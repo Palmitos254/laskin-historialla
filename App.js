@@ -7,18 +7,26 @@ export default function App() {
   const [text, setText] = useState();
   const [text2, setText2] = useState();
   const [tulos, setTulos] = useState();
+  const [rivi, setRivi] = useState("")
   const [data, setData] = useState([]);
 
   const buttonPressed = () => {
-    setTulos(text*1 + 1*text2)
+    setTulos(text*1 + 1*text2);
+    setRivi(text + " + " + text2 + " = " + (text*1 + 1*text2))
+    setData([...data, {key: rivi}]);
   }
 
   const buttonPressed2 = () => {
-    setTulos(text - text2)
+    setTulos(text - text2);
+    setRivi(text + " - " + text2 + " = " + (text - text2))
+    setData([...data, {key: rivi}]);
   }
 
   return (
     <View style={styles.container}>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
       <Text>Result: {tulos}</Text>
       <StatusBar style="auto" />
       <TextInput 
@@ -36,6 +44,7 @@ export default function App() {
         <Text>       </Text>
         <Button onPress={buttonPressed2} title=" - " />
       </View>
+      <Text>History</Text>
       <FlatList
         data={data}
         renderItem={({item}) => <Text>{item.key}</Text>}
